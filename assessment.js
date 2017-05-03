@@ -59,27 +59,39 @@ var snake = {
 	runs: 'legless'
 };
 
-
+for (var key in snake) {
+	if (key[0] === 's') {
+		snake[key] = 's'
+	}
+}
 
 //#7 Create an array of strings that are the 7 primary colors in the rainbow - red, orange, yellow, green, blue, indigo, violet (lower-case). Call your array rainbowColors
+
+var rainbowColors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
 
 // #8 Using this array do the following
 var heroes = ['superman', 'batman', 'flash'];
 // add 'wonderwoman' to the end
-
+heroes.push('wonderwoman');
 // remove 'superman' and store him in a variable called firstHero
-
+var firstHero = heroes.shift();
 // add 'spongebob' to the start of the array
-
+heroes.unshift('spongebob');
 // remove 'flash' from the array and store him in a variable called secondHero
-
+var secondHero = heroes.splice(2, 1);
 // leave batman in the array but put a copy of him on a variable called thirdHero
-
+var thirdHero = heroes[1];
+// alert(heroes);
+// alert(thirdHero);
 
 
 
 // #9 Write a function called addItem that takes in an array and an item, adds the item to
 // the array, and returns the array with the added item.
+function addItem(arr, item) {
+	arr.push(item);
+	return arr;
+}
 
 
 // #10 Write a function called removeItem that takes in an array of strings, and a string.
@@ -87,20 +99,55 @@ var heroes = ['superman', 'batman', 'flash'];
 // Removes all instances of that string from the array. And return the modified array.
 // The order of the array should not be changed
 
+function removeItem(arr, str) {
+	var newArr = [];
+	for (var i = 0; i < arr.length; i++) {
+		if (arr[i] !== str) {
+			newArr.push(arr[i]);
+		}
+	}
+	return newArr;
+}
+
+
+
 // #11 Write a function  called doubleTheFun that takes 1 parameter. It should double numbers, and
 // repeats strings. example 4->8, 2.5->5, 'Awesome'->'AwesomeAwesome'
+function doubleTheFun(param) {
+	if (param == +param) {
+		param = +param;
+	}
+	return param + param;
+}
 
 
 
 // #12 Write function getValueOfProperty that takes in an object, and the name of a property on the object
 // return the value from the object that corresponds to the property
 
+function getValueOfProperty(obj, prop) {
+	return obj[prop];
+}
+
 
 // #13 Write a function called makeChatMessage that takes in a message and author as parameters
 // and returns an object with a message, author, and timestamp, that is
 // the current time as a Date object
 
+function makeChatMessage(msg, auth) {
+	var currentDate = new Date();
+	return {
+		message: msg,
+		author: auth,
+		timestamp: currentDate
+	}
+}
+
 // #14 Create a function called coderTest that takes in an object that is a person. It looks to see if the person’s name is Jeremy and then changes the person object to have a property called lovesCode with a value of 10.  If their name is Brack set lovesCode to 0.  otherwise set lovesCode to 5.
+function coderTest(person) {
+	person.lovesCode = person.name === 'Jeremy' ? 10 : person.name === 'Brack' ? 0 : 5;
+	return person;
+}
 
 
 // #15 Create a function called outside that takes in a temperature (number), a humidity(number), and a cloudiness(number), in that order. Using the following to return the correct values
@@ -111,6 +158,13 @@ var heroes = ['superman', 'batman', 'flash'];
     temperature over 80 or humidity over 50 or cloudiness over 50 - return "Hmm, probably not"
     Otherwise - return "I love outside"
 */
+function outside(temp, moisture, clouds) {
+	return temp > 80 && moisture > 40 ? 'I\'m all sweat' : temp < 40 && clouds > 60 ? 'I have icecicles' : temp > 80 && moisture < 40 && clouds < 20 ? 'I\'m literally in the desert' : temp > 80 || moisture > 50 || clouds > 50 ? 'Hmm, probably not' : 'I love outside';
+}
 
 // #16 Create a function called callerBack that takes in a function (holla) and a string parameter(back) and invokes it(holla) with the argument string(back) + ' back'."
 // example - If I call you with 'Give it' you should invoke holla with 'Give it back'
+
+function callerBack(holla, back) {
+	holla(back + ' back');
+}
