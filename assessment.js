@@ -90,6 +90,14 @@ const addItem = (arry, item) => {
 
 // #10 Write a function called removeItem that takes in an array of strings, and a string.
 const removeItem = (arry, str) => arry.filter((item) => item !== str)
+// function removeItem(array, str) {
+// 	array.map(function(elem, index, arry) {
+// 		if (elem === str) {
+// 			arry.splice(index, 1)
+// 		}
+// 	})
+// 	return array
+// }
 // Removes all instances of that string from the array. And return the modified array.
 // The order of the array should not be changed
 
@@ -97,7 +105,8 @@ const removeItem = (arry, str) => arry.filter((item) => item !== str)
 // repeats strings. example 4->8, 2.5->5, 'Awesome'->'AwesomeAwesome'
 
 // Solution #1
-const doubleTheFun = (param) => param == +param ? +param + +param : param + param;
+const doubleTheFun=x=>+x+ +x?+x+ +x:x+x;
+// const doubleTheFun = (param) => param == +param ? +param + +param : param + param;
 
 // Solution #2
 // function doubleTheFun(param) {
